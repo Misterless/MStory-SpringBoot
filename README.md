@@ -12,5 +12,15 @@
 -lombok
 -validation
 
-### 2. DV설정
+### 2. DB설정
+```sql
+CREATE USER 'green'@'%' IDENTIFIED BY 'green1234';
+CREATE DATABASE greendb;
+GRANT ALL PRIVILEGES ON greendb.* TO 'green'@'%';
 ```
+
+### 3. editor
+- https://quilljs.com/
+
+###  댓글
+- https://livere.com/
