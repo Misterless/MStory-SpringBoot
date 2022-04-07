@@ -1,7 +1,10 @@
 package site.metacoding.blogv4.domain.user;
 
+
+
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -20,9 +23,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(length=20, nullable= false, unique=true)
     private String username;
+    
+    //1234  ->sha256(hash) ->03AC674216F3E15C761EE1A5E255F067953623C8B388B4459E13F978D7C846F4
+    //안그러면 security가 거부함
+    @Column(length= 20, nullable= false)
     private String password;
 
+    @Column(length= 20, nullable= false, unique=true)
+    private String email;
     @CreatedDate // insert 할때만 동작
     private LocalDateTime createDate;
     @LastModifiedDate // update 할때만 동작
