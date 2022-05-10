@@ -19,3 +19,7 @@
 .my_text_primary {
     color: rgb(25, 25, 25);
 } 
+
+.my_bg_error {
+    color: rgb(250,200,200);
+}

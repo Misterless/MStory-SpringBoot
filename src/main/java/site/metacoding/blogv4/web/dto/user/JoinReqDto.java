@@ -1,4 +1,4 @@
-package site.metacoding.web.dto.user;
+package site.metacoding.blogv4.web.dto.user;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
