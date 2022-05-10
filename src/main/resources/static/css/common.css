@@ -1,5 +1,5 @@
 .my_error_box {
-    background-color: rgb(250,200,200;
+    background-color: rgb(250,200,200);
     font-style: italic;
     padding : 15px;
 }
@@ -10,7 +10,7 @@
     background-color: white;
     color: black;
     justify-content: space-between;
-    border-bottom: 1px solid rgb(25, 25, 25);
+    border-bottom: 1px solid rgb(185,185,185);
 }
 .my_navbar_title {
     color: rgb(25, 25, 25);
