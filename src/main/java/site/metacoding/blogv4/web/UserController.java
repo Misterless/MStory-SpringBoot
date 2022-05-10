@@ -1,7 +1,6 @@
 package site.metacoding.blogv4.web;
 
-import java.util.HashMap;
-import java.util.Map;
+
 
 import javax.validation.Valid;
 
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.blogv4.handler.ex.CustomException;
 import site.metacoding.blogv4.service.UserService;
+import site.metacoding.blogv4.util.UtilValid;
 import site.metacoding.blogv4.web.dto.user.JoinReqDto;
 import site.metacoding.blogv4.web.dto.user.PasswordResetReqDto;
 
@@ -39,19 +39,13 @@ public class UserController {
     public String passwordResetForm(){
         return "/user/passwordResetForm";
     }
-@PostMapping("/user/password-reset")
-public String passwordReset(@Valid PasswordResetReqDto passwordResetReqDto, BindingResult bindingResult){
-    if(bindingResult.hasErrors()){
-        Map<String,String> errorMap = new HashMap<>();    
-    
-        for (FieldError fe :bindingResult.getFieldErrors()) {
-            System.out.println(fe.getField());
-            System.out.println(fe.getDefaultMessage());
-        }
-        throw new CustomException(errorMap.toString());       
-        }
-        userService.패스워드초기화(passwordResetReqDto);
 
+    @PostMapping("/user/password-reset")
+    public String passwordReset(@Valid PasswordResetReqDto passwordResetReqDto, BindingResult bindingResult){
+    
+        UtilValid.요청에러처리(bindingResult);
+
+        userService.패스워드초기화(passwordResetReqDto);
 
     return "redirect:/login-form";
 }
@@ -68,16 +62,8 @@ public String passwordReset(@Valid PasswordResetReqDto passwordResetReqDto, Bind
     @PostMapping("/join")
     public String join(@Valid JoinReqDto joinReqDto, BindingResult bindingResult){
         
-        if(bindingResult.hasErrors()){
-            Map<String,String> errorMap = new HashMap<>();    
-        
-            for (FieldError fe :bindingResult.getFieldErrors()) {
-                System.out.println(fe.getField());
-                System.out.println(fe.getDefaultMessage());
-            }
-            throw new CustomException(errorMap.toString());       
-            }
-            // core logic
+            UtilValid.요청에러처리(bindingResult);
+
             userService.회원가입(joinReqDto.toEntity());
 
         return "redirect:/login-form";
