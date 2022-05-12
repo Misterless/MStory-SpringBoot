@@ -13,7 +13,7 @@ import site.metacoding.blogv4.domain.user.User;
 @NoArgsConstructor
 @Data
 public class JoinReqDto {
-    @Pattern(regexp="[a-zA-Z1-9]{4,20}", message = "한글은 사용할 수 없습니다.")
+    @Pattern(regexp="[a-zA-Z0-9]{4,20}", message = "한글은 사용할 수 없습니다.")
     
     @Size(min=4, max= 20)
     @NotBlank
