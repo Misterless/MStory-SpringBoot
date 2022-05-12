@@ -38,7 +38,7 @@ public class UserController {
         return "/user/joinForm";
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/s/user/{id}") //login해야 업데이트하게 수정
     public String updateForm(@PathVariable Integer id){
         return "/user/updateForm";
     }
