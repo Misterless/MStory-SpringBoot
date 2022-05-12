@@ -11,6 +11,7 @@
     color: black;
     justify-content: space-between;
     border-bottom: 1px solid rgb(185,185,185);
+    position: relative;
 }
 .my_navbar_title {
     color: rgb(25, 25, 25);
@@ -84,4 +85,8 @@
 .my_elipse {
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.my_dropdown_menu {
+    position: absolute !important;
 }
