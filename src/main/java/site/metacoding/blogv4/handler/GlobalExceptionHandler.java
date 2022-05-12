@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import site.metacoding.blogv4.handler.ex.CustomApiException;
 import site.metacoding.blogv4.handler.ex.CustomException;
+import site.metacoding.blogv4.util.Script;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -18,12 +19,7 @@ public class GlobalExceptionHandler {
     }
     @ExceptionHandler(CustomException.class)
     public String htmlException(Exception e){ //일반적 요청 Get(a tag) Post(form tag)
-        StringBuilder sb= new StringBuilder();
-        sb.append("<script>");
-        sb.append("alert(`"+e.getMessage() +"`);");
-        sb.append("history.back();");
-        sb.append("</script>");
 
-        return sb.toString();
+        return Script.back(e.getMessage());
     }
 }

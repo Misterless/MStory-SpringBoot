@@ -22,12 +22,13 @@
 </head>
 
 <body class="drawer drawer--left">
-
+<!-- 이제 목업된데이터 삭제하고 실제 데이터 넣음 -->
     <nav class="drawer-nav" role="navigation">
         <ul class="drawer-menu">
             <li><a class="drawer-brand" href="/">Home</a></li>
-            <li><a class="drawer-menu-item" href="#">Nav1</a></li>
-            <li><a class="drawer-menu-item" href="#">Nav2</a></li>
+            {{#postRespDto.categorys}}
+            <li><a class="drawer-menu-item" href="/user/{{user.id}}/post?categoryId={{id}}">{{title}}</a></li>
+            {{/postRespDto.categorys}}
         </ul>
     </nav>
 
